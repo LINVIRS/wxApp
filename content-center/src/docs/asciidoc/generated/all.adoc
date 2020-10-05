@@ -1,0 +1,501 @@
+= share-app Swagger文档
+
+
+[[_overview]]
+== Overview
+github地址:www.baidu.com
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : API V1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : 王林
+__Contact Email__ : 1987153442@qq.com
+
+
+=== License information
+[%hardbreaks]
+__License__ : Apache
+__License URL__ : http://www.apache.org/
+__Terms of service__ : Terms of service
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:8086
+__BasePath__ : /
+
+
+=== Tags
+
+* content-controller : Content Controller
+* 公告接口 : Notice Controller
+* 分享接口 : Share Controller
+
+
+
+
+[[_paths]]
+== Resources
+
+[[_content-controller_resource]]
+=== Content-controller
+Content Controller
+
+
+[[_getinstanceusingget]]
+==== getInstance
+....
+GET /c2
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_917a6a0ad3b9cec276900e3a86586a07]]
+=== 公告接口
+Notice Controller
+
+
+[[_findlastusingget]]
+==== 公告
+....
+GET /notice/findLast
+....
+
+
+===== Description
+查询公告
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_93ac7b0028ad8b64d79fb851136ab00b,公告Vo>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_3ecef281a805f36ea4142625eefacc12]]
+=== 分享接口
+Share Controller
+
+
+[[_contributeshareusingpost]]
+==== 投稿
+....
+POST /shares/contribute
+....
+
+
+===== Description
+用户投稿
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**shareRequestDTO** +
+__required__|shareRequestDTO|<<_be82c47d3042c7ec453257f6d2d95130,投稿Dto>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_restresult,RestResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_editorscontributeusingpost]]
+==== 编辑接口
+....
+POST /shares/editor/contribute
+....
+
+
+===== Description
+用户编辑投稿内容
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**editorSharesDto** +
+__required__|editorSharesDto|<<_a7e80dea92cecddea4435cafab644291,编辑投稿Dto>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_restresult,RestResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_findshareusingpost]]
+==== 查询分享
+....
+POST /shares/find/share
+....
+
+
+===== Description
+查询所有发表的分享
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**myShareDto** +
+__required__|myShareDto|<<_4d87e851c2dc3fd30e7564533c3b1552,分享Dto>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_58c66da01d26c6ede48fdc6991f17a1a,分享Vo>> > array
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_findmyshareusingpost]]
+==== 查询分享
+....
+POST /shares/my/contributions
+....
+
+
+===== Description
+查询我的发表的分享
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**myShareDto** +
+__required__|myShareDto|<<_4d87e851c2dc3fd30e7564533c3b1552,分享Dto>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_58c66da01d26c6ede48fdc6991f17a1a,分享Vo>> > array
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_searchshareusingpost]]
+==== 搜索分享
+....
+POST /shares/search/share
+....
+
+
+===== Description
+搜索指定关键字分享
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**searchDto** +
+__required__|searchDto|<<_5f85dca4ebab955374c8bd6b7f9cac06,搜索Dto>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_58c66da01d26c6ede48fdc6991f17a1a,分享Vo>> > array
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_restresult]]
+=== RestResult
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**code** +
+__optional__|integer (int32)
+|**data** +
+__optional__|object
+|**msg** +
+__optional__|string
+|===
+
+
+[[_timestamp]]
+=== Timestamp
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**date** +
+__optional__|integer (int32)
+|**day** +
+__optional__|integer (int32)
+|**hours** +
+__optional__|integer (int32)
+|**minutes** +
+__optional__|integer (int32)
+|**month** +
+__optional__|integer (int32)
+|**nanos** +
+__optional__|integer (int32)
+|**seconds** +
+__optional__|integer (int32)
+|**time** +
+__optional__|integer (int64)
+|**timezoneOffset** +
+__optional__|integer (int32)
+|**year** +
+__optional__|integer (int32)
+|===
+
+
+[[_93ac7b0028ad8b64d79fb851136ab00b]]
+=== 公告Vo
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**content** +
+__optional__|公告内容|string
+|**createTime** +
+__optional__|创建时间|<<_timestamp,Timestamp>>
+|**id** +
+__optional__|公告id|integer (int32)
+|**showFlag** +
+__optional__|是否显示 0：否 1：是 +
+**Minimum value** : `-128` +
+**Maximum value** : `127`|integer (int32)
+|===
+
+
+[[_4d87e851c2dc3fd30e7564533c3b1552]]
+=== 分享Dto
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**pageIndex** +
+__optional__|分页下标 从0开始|integer (int32)
+|**pageSize** +
+__optional__|分页数|integer (int32)
+|**userId** +
+__optional__|用户id|integer (int32)
+|===
+
+
+[[_58c66da01d26c6ede48fdc6991f17a1a]]
+=== 分享Vo
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**author** +
+__optional__|作者|string
+|**cover** +
+__optional__|封面|string
+|**downloadUrl** +
+__optional__|下载地址|string
+|**isOriginal** +
+__optional__|是否原创 0否 1 是 +
+**Minimum value** : `-128` +
+**Maximum value** : `127`|integer (int32)
+|**price** +
+__optional__|价格|integer (int32)
+|**summary** +
+__optional__|简介|string
+|**title** +
+__optional__|标题|string
+|===
+
+
+[[_be82c47d3042c7ec453257f6d2d95130]]
+=== 投稿Dto
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**author** +
+__optional__|作者|string
+|**cover** +
+__optional__|封面|string
+|**downloadUrl** +
+__optional__|下载地址|string
+|**isOriginal** +
+__optional__|是否原创 0否 1 是|integer (int32)
+|**price** +
+__optional__|价格|integer (int32)
+|**summary** +
+__optional__|简介|string
+|**title** +
+__optional__|标题|string
+|**userId** +
+__optional__|用户id|integer (int32)
+|===
+
+
+[[_5f85dca4ebab955374c8bd6b7f9cac06]]
+=== 搜索Dto
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**searchKey** +
+__optional__|搜索关键词|string
+|===
+
+
+[[_a7e80dea92cecddea4435cafab644291]]
+=== 编辑投稿Dto
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**cover** +
+__optional__|封面|string
+|**downloadUrl** +
+__optional__|下载地址|string
+|**id** +
+__optional__|稿子id|integer (int32)
+|**isOriginal** +
+__optional__|是否原创 0否 1 是|integer (int32)
+|**price** +
+__optional__|价格|integer (int32)
+|**summary** +
+__optional__|简介|string
+|**title** +
+__optional__|资源名称|string
+|===
+
+
+
+
+
