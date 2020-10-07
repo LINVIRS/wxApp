@@ -7,14 +7,10 @@ import javax.annotation.Resource;
 
 @SpringBootTest
 class UserCenterApplicationTests {
-@Resource
-private UserRepository userRepository;
+
 	@Test
 	void contextLoads() {
 	}
 
-	 @Test
-	void  ce(){
-    System.out.println(userRepository.findSize());
-	 }
+
 }

@@ -11,6 +11,10 @@ spring:
       discovery:
         server-addr: 39.103.140.27:8848
         ip: 39.103.140.27
+    sentinel:
+      transport:
+        #指定sentinel控制台位置
+        dashboard: localhost:8080
       # jackson配置
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -53,3 +57,8 @@ logging:
 #      # 全局配置
 #      default:
 #        loggerLevel: full
+rocketmq:
+  name-server: 123.57.51.43:9876
+  producer:
+    # 必须指定group
+    group: test-group

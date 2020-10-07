@@ -1,10 +1,7 @@
 package com.wl.contentcenter.service;
 
 import com.wl.contentcenter.common.result.RestResult;
-import com.wl.contentcenter.domain.dto.EditorSharesDto;
-import com.wl.contentcenter.domain.dto.MyShareDto;
-import com.wl.contentcenter.domain.dto.SearchDto;
-import com.wl.contentcenter.domain.dto.ShareRequestDTO;
+import com.wl.contentcenter.domain.dto.*;
 import com.wl.contentcenter.domain.vo.MyShareVo;
 
 import java.util.List;
@@ -53,4 +50,12 @@ public interface ShareService {
    * @return
    */
   List<MyShareVo> searchKey(SearchDto searchDto);
+
+  /**
+   * 审核帖子
+   * 管理员接口
+   * @param auditDto
+   * @return
+   */
+  RestResult auditShare(AuditDto auditDto);
 }

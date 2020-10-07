@@ -3,18 +3,17 @@ package com.wl.contentcenter.sqlUtil.dao.daoImpl;
 import com.querydsl.core.types.Projections;
 import com.wl.contentcenter.common.constant.ParameterConstant;
 import com.wl.contentcenter.common.result.RestResult;
-import com.wl.contentcenter.domain.dto.EditorSharesDto;
-import com.wl.contentcenter.domain.dto.MyShareDto;
-import com.wl.contentcenter.domain.dto.SearchDto;
-import com.wl.contentcenter.domain.dto.ShareRequestDTO;
+import com.wl.contentcenter.domain.dto.*;
 import com.wl.contentcenter.domain.vo.MyShareVo;
 import com.wl.contentcenter.entity.QMidUserShare;
 import com.wl.contentcenter.entity.QShare;
 import com.wl.contentcenter.entity.Share;
 import com.wl.contentcenter.sqlUtil.dao.SharesDao;
 import com.wl.contentcenter.sqlUtil.util.BaseService;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @ClassName: ShareDaoImpl @Description: TODO @Author: WangLinLIN @Date:
@@ -94,22 +93,39 @@ public class SharesDaoImpl extends BaseService implements SharesDao {
 
   @Override
   public List<MyShareVo> searchKey(SearchDto searchDto) {
-    QShare qShare =QShare.share;
-    return queryFactory.select(Projections.bean(
-            MyShareVo.class,
-            qShare.author.as("author"),
-            qShare.downloadUrl.as("downloadUrl"),
-            qShare.isOriginal.as("isOriginal"),
-            qShare.price.as("price"),
-            qShare.summary.as("summary"),
-            qShare.title.as("title"),
-            qShare.cover.as("cover")))
-            .from(qShare)
-            .where(qShare.author.contains(searchDto.getSearchKey())
-            .or(qShare.summary.contains(searchDto.getSearchKey()))
-            .or(qShare.title.contains (searchDto.getSearchKey()))
-            .and(qShare.auditStatus.eq(ParameterConstant.AUDIT_STATUS_PASS))
-            .and(qShare.showFlag.eq(ParameterConstant.IS_SHOW)))
-            .orderBy(qShare.updateTime.desc(),qShare.buyCount.desc()).fetch();
+    QShare qShare = QShare.share;
+    return queryFactory
+        .select(
+            Projections.bean(
+                MyShareVo.class,
+                qShare.author.as("author"),
+                qShare.downloadUrl.as("downloadUrl"),
+                qShare.isOriginal.as("isOriginal"),
+                qShare.price.as("price"),
+                qShare.summary.as("summary"),
+                qShare.title.as("title"),
+                qShare.cover.as("cover")))
+        .from(qShare)
+        .where(
+            qShare
+                .author
+                .contains(searchDto.getSearchKey())
+                .or(qShare.summary.contains(searchDto.getSearchKey()))
+                .or(qShare.title.contains(searchDto.getSearchKey()))
+                .and(qShare.auditStatus.eq(ParameterConstant.AUDIT_STATUS_PASS))
+                .and(qShare.showFlag.eq(ParameterConstant.IS_SHOW)))
+        .orderBy(qShare.updateTime.desc(), qShare.buyCount.desc())
+        .fetch();
+  }
+
+  @Override
+  public long adminAudit(AuditDto auditDto) {
+    QShare qShare = QShare.share;
+    return queryFactory
+        .update(qShare)
+        .set(qShare.reason, auditDto.getReason())
+        .set(qShare.auditStatus, auditDto.getAuditStatus())
+        .where(qShare.id.eq(auditDto.getShareId()))
+        .execute();
   }
 }

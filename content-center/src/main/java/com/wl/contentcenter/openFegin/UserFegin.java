@@ -20,5 +20,5 @@ public interface UserFegin {
   /**
    * 是这样
    */
-  User getUser(@SpringQueryMap Integer id);
+  User getUser(@RequestParam("id") Integer id);
 }

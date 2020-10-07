@@ -2,10 +2,7 @@ package com.wl.contentcenter.controller;
 
 import com.sun.xml.bind.v2.model.core.ID;
 import com.wl.contentcenter.common.result.RestResult;
-import com.wl.contentcenter.domain.dto.EditorSharesDto;
-import com.wl.contentcenter.domain.dto.MyShareDto;
-import com.wl.contentcenter.domain.dto.SearchDto;
-import com.wl.contentcenter.domain.dto.ShareRequestDTO;
+import com.wl.contentcenter.domain.dto.*;
 import com.wl.contentcenter.domain.vo.MyShareVo;
 import com.wl.contentcenter.domain.vo.UserShareVo;
 import com.wl.contentcenter.openFegin.UserFegin;
@@ -20,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.annotation.Resource;
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -95,5 +93,17 @@ public class ShareController {
         .userName(user.getWxNickname())
         .myShareVoList(share)
         .build();
+  }
+
+  /**
+   *
+   * 投稿审核
+   * @param auditDto
+   * @return
+   */
+  @PostMapping("/audit/share")
+  @ApiOperation(value = "审核投稿", notes = "审核投稿 管理员接口")
+  public RestResult auditShare(@RequestBody AuditDto auditDto) {
+    return shareService.auditShare(auditDto);
   }
 }

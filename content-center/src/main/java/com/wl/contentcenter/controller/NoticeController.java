@@ -1,5 +1,7 @@
 package com.wl.contentcenter.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.wl.contentcenter.domain.vo.NoticeVo;
 import com.wl.contentcenter.service.NoticeService;
 import io.swagger.annotations.Api;
@@ -24,5 +26,15 @@ public class NoticeController {
   @ApiOperation(value = "公告", notes = "查询公告")
   public NoticeVo findLast() {
     return noticeService.findLatestNotice();
+  }
+
+  @GetMapping("/v1")
+  @SentinelResource(value = "byResouce", blockHandler = "noticeException")
+  public String getNotice() {
+    return "你好";
+  }
+
+  public String noticeException(BlockException blockException) {
+    return "服务名称限制";
   }
 }

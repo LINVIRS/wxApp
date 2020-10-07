@@ -36,7 +36,10 @@ public class GlobalResponseHandler implements ResponseBodyAdvice {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         if (body instanceof RestResult) {
             return body;
-        } else {
+            //修改包装
+        } else if (returnType.getParameterType()==String.class){
+            return body;
+        }else {
 
             return new RestResultBuilder<>().success(body);
         }
