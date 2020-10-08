@@ -42,7 +42,6 @@ public class ShareController {
   @PostMapping("/contribute")
   @ApiOperation(value = "投稿", notes = "用户投稿")
   public RestResult contributeShare(@RequestBody ShareRequestDTO shareRequestDTO) {
-
     return shareService.contributeShare(shareRequestDTO);
   }
 
@@ -84,7 +83,6 @@ public class ShareController {
   @PostMapping("/find/userShare/{id}")
   @ApiIgnore
   public UserShareVo userShare(@PathVariable("id") Integer id, @RequestBody MyShareDto myShareDto) {
-    //
     //    User user = restTemplate.getForObject("http://user-center/users/me/"+id, User.class);
     User user = userFegin.getUser(id);
     List<MyShareVo> share = shareService.findShare(myShareDto);
@@ -105,5 +103,31 @@ public class ShareController {
   @ApiOperation(value = "审核投稿", notes = "审核投稿 管理员接口")
   public RestResult auditShare(@RequestBody AuditDto auditDto) {
     return shareService.auditShare(auditDto);
+  }
+
+  /**
+   *
+   * 投稿审核
+   * @param auditDto
+   * @return
+   */
+  @PostMapping("/audit/share1")
+  @ApiOperation(value = "审核投稿", notes = "审核投稿 管理员接口")
+  public RestResult auditShare1(@RequestBody AuditDto auditDto) {
+    return shareService.auditShare1(auditDto);
+  }
+
+
+
+  @PostMapping("/audit/share2")
+  @ApiOperation(value = "审核投稿", notes = "审核投稿 管理员接口")
+  public RestResult auditShare2(@RequestBody AuditDto auditDto) {
+    return shareService.auditShare2(auditDto);
+  }
+
+  @PostMapping("/audit/share3")
+  @ApiOperation(value = "审核投稿", notes = "审核投稿 管理员接口")
+  public RestResult auditShare3(@RequestBody AuditDto auditDto) {
+    return shareService.auditShare3(auditDto);
   }
 }

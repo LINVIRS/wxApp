@@ -58,4 +58,30 @@ public interface ShareService {
    * @return
    */
   RestResult auditShare(AuditDto auditDto);
+  /**
+   * 审核帖子
+   * 管理员接口
+   * @param auditDto
+   * @return
+   */
+  RestResult auditShare1(AuditDto auditDto);
+
+
+  /**
+   * 审核帖子
+   * 管理员接口
+   * @param auditDto
+   * @return
+   */
+  RestResult auditShare2(AuditDto auditDto);
+
+
+
+  /**
+   * 审核帖子
+   * 管理员接口
+   * @param auditDto
+   * @return
+   */
+  RestResult auditShare3(AuditDto auditDto);
 }

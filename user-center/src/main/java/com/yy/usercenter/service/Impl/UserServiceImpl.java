@@ -1,7 +1,10 @@
 package com.yy.usercenter.service.Impl;
 
+import com.yy.usercenter.domain.Dto.MessageDto;
 import com.yy.usercenter.mapper.BonusMapper;
+import com.yy.usercenter.mapper.UserMapper;
 import com.yy.usercenter.model.Bonus;
+import com.yy.usercenter.model.User;
 import com.yy.usercenter.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserServiceImpl implements UserService {
     private final BonusMapper bonusMapper;
-
+    private final UserMapper userMapper;
     @Override
     public void sign(int userId) {
         bonusMapper.insert(Bonus.builder().userId(userId).value(5)
@@ -29,11 +32,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int addUserBonus(int userId) {
-        Example example =new Example(Bonus.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("user_id",userId);
-        
-        return 0;
+    public Integer addUserBonus(MessageDto messageDto) {
+        //1,为用户加积分
+        Integer userId = messageDto.getUserId();
+        User user = this.userMapper.selectByPrimaryKey(userId);
+        user.setBonus(user.getBonus()+messageDto.getBonus());
+        this.userMapper.updateByPrimaryKeySelective(user);
+        //2,写积分日志
+        bonusMapper.insert(Bonus.builder()
+                .userId(userId)
+                .value(messageDto.getBonus())
+                .event("CONTRIBUTE")
+                .createTime(Timestamp.valueOf(LocalDateTime.now()))
+                .description("投稿加积分")
+                .build());
+        return 3;
     }
 }

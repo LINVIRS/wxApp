@@ -1,15 +1,26 @@
 package com.wl.contentcenter.service.serviceImpl;
 
+import com.alibaba.fastjson.JSON;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.wl.contentcenter.common.constant.ParameterConstant;
 import com.wl.contentcenter.common.result.RestResult;
 import com.wl.contentcenter.common.result.RestResultBuilder;
 import com.wl.contentcenter.domain.dto.*;
 import com.wl.contentcenter.domain.vo.MyShareVo;
 import com.wl.contentcenter.entity.Share;
+import com.wl.contentcenter.openFegin.UserFegin;
 import com.wl.contentcenter.service.ShareService;
 import com.wl.contentcenter.sqlUtil.repository.ShareRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.client.AsyncRestTemplate;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -23,10 +34,13 @@ import java.util.Optional;
  * 2020/09/24 12:56:17  @Version: V1.0
  */
 @Service
+@Slf4j
 public class ShareServiceImpl implements ShareService {
   @Resource private ShareRepository shareRepository;
   @Resource private RocketMQTemplate rocketMQTemplate;
-
+  @Resource private AsyncRestTemplate asyncRestTemplate;
+@Resource
+private  UserFegin userFegin;
   @Override
   @Transactional(rollbackOn = RuntimeException.class)
   public RestResult contributeShare(ShareRequestDTO shareRequestDTO) {
@@ -92,6 +106,52 @@ public class ShareServiceImpl implements ShareService {
     }
 
     long l = shareRepository.adminAudit(auditDto);
+    return new RestResultBuilder<>().success();
+  }
+
+  @Override
+  @Transactional(rollbackOn = RuntimeException.class)
+  public RestResult auditShare1(AuditDto auditDto) {
+    Optional<Share> optional = shareRepository.findById(auditDto.getShareId());
+    Share share = optional.orElse(new Share());
+
+    userFegin.AddBonus(UserAddBonusDto.builder().userId(share.getUserId()).bonus(50).build());
+    return new RestResultBuilder<>().success();
+  }
+
+  @Override
+  public RestResult auditShare2(AuditDto auditDto) {
+    long startTime=System.currentTimeMillis();   //获取开始时间
+    String url ="http://localhost:8083/users/add";
+    Optional<Share> optional = shareRepository.findById(auditDto.getShareId());
+    Share share = optional.orElse(new Share());
+    //设置Header
+    MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+    headers.add("Content-Type", "application/json;charset=UTF-8");
+    UserAddBonusDto userAddBonusDto = UserAddBonusDto.builder().userId(share.getUserId()).bonus(50).build();
+    HttpEntity<Object> httpEntity = new HttpEntity<>(userAddBonusDto,headers);
+    ListenableFuture<ResponseEntity<Integer>> responseEntityListenableFuture = asyncRestTemplate.postForEntity(url, httpEntity, Integer.class);
+
+    long endTime=System.currentTimeMillis(); //获取结束时间
+    System.out.println("程序运行时间： "+(endTime-startTime)+"ms");
+    return new RestResultBuilder<>().success();
+  }
+
+  @Override
+  public RestResult auditShare3(AuditDto auditDto) {
+    long startTime=System.currentTimeMillis();   //获取开始时间
+    Optional<Share> optional = shareRepository.findById(auditDto.getShareId());
+    Share share = optional.orElse(new Share());
+
+    userFegin.AddBonus(UserAddBonusDto.builder().userId(share.getUserId()).bonus(50).build());
+    try {
+      Thread.sleep(10000);
+      System.out.println("休眠结束");
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    long endTime=System.currentTimeMillis(); //获取结束时间
+    System.out.println("程序运行时间： "+(endTime-startTime)+"ms");
     return new RestResultBuilder<>().success();
   }
 }

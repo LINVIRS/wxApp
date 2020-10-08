@@ -4,10 +4,10 @@ management:
       exposure:
         include: '*'
 server:
-  port: 0
+  port: 8083
 spring:
   application:
-    name: user-center
+    name: wluser-center
   cloud:
     inetutils:
       ignored-interfaces: eth.* #忽略网卡

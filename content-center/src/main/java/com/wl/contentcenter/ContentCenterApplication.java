@@ -9,6 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
 
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ import javax.persistence.EntityManager;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients(defaultConfiguration = UserCenterconfig.class)
+//@EnableAsync
 public class ContentCenterApplication {
 
   public static void main(String[] args) {

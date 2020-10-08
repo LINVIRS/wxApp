@@ -1,5 +1,6 @@
 package com.yy.usercenter.service;
 
+import com.yy.usercenter.domain.Dto.MessageDto;
 import com.yy.usercenter.model.Bonus;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,7 @@ public interface UserService {
 
     /**
      * 新增用户的 Bonus
-     * @param userId
-     * @return
+     * @param messageDto
      */
-    int addUserBonus(int userId);
+    Integer addUserBonus(MessageDto messageDto);
 }

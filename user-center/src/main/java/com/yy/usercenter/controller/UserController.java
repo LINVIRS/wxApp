@@ -1,15 +1,14 @@
 package com.yy.usercenter.controller;
 
+import com.yy.usercenter.RQ.AddBonusListener;
+import com.yy.usercenter.domain.Dto.MessageDto;
 import com.yy.usercenter.mapper.UserMapper;
 import com.yy.usercenter.model.Bonus;
 import com.yy.usercenter.model.User;
 import com.yy.usercenter.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,5 +34,12 @@ public class UserController {
     @GetMapping("/q")
     public User getUser(User user) {
         return user;
+    }
+
+
+    @PostMapping("/add")
+    public Integer AddBonus(@RequestBody MessageDto messageDto){
+    System.out.println( "我被调用");
+       return userService.addUserBonus(messageDto);
     }
 }
