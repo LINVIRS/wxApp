@@ -18,6 +18,9 @@ import lombok.NoArgsConstructor;
 @ApiModel("分享Vo")
 public class MyShareVo {
   // 作者
+  @ApiModelProperty(name = "id", value = "链接id")
+  private Integer id;
+  // 作者
   @ApiModelProperty(name = "author", value = "作者")
   private String author;
   // 下载地址

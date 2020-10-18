@@ -20,4 +20,8 @@ import lombok.NoArgsConstructor;
 public class SearchDto {
   @ApiModelProperty(name = "searchKey", value = "搜索关键词")
   private String searchKey;
+  @ApiModelProperty(name = "pageSize", value = "分页数")
+  private int pageSize;
+  @ApiModelProperty(name = "pageIndex", value = "分页下标")
+  private int pageIndex;
 }

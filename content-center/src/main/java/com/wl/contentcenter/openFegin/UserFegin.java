@@ -1,5 +1,6 @@
 package com.wl.contentcenter.openFegin;
 
+import com.wl.contentcenter.common.result.RestResult;
 import com.wl.contentcenter.config.UserCenterconfig;
 import com.wl.contentcenter.domain.dto.UserAddBonusDto;
 import com.wl.contentcenter.userEntiy.User;
@@ -17,14 +18,14 @@ import javax.naming.Name;
  */
 @FeignClient(name = "wluser-center",configuration = UserCenterconfig.class)
 //
-@Async
+
 //@EnableAsync
 public interface UserFegin {
-  @GetMapping(value ="/u1/{id}")
+  @GetMapping(value ="/users/me/{userId}")
   /**
    * 是这样
    */
-  User getUser(@RequestParam("id") Integer id);
+  RestResult getUser(@PathVariable("userId") Integer id);
 
 @PostMapping("/users/add")
 public Integer AddBonus(@RequestBody UserAddBonusDto messageDto);

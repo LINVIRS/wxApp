@@ -28,6 +28,12 @@ public interface SharesDao {
   List<MyShareVo> findMyShare(MyShareDto myShareDto);
 
   /**
+   * 查询我的兑换
+   * @param myShareDto
+   * @return
+   */
+  List<MyShareVo> findMyDuiHuan(MyShareDto myShareDto);
+  /**
    * 查询分享
    *
    * @param myShareDto

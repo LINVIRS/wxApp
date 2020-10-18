@@ -17,7 +17,7 @@ import javax.persistence.EntityManager;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients(defaultConfiguration = UserCenterconfig.class)
-//@EnableAsync
+
 public class ContentCenterApplication {
 
   public static void main(String[] args) {

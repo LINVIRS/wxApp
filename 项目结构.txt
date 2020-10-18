@@ -1,0 +1,508 @@
+文件夹 PATH 列表
+卷序列号为 0E26-1087
+E:.
+│  1.txt
+│  pom.xml
+│  Swagger生成优美文档.pdf
+│  Wx-Share.iml
+│  
+├─.idea
+│  │  .gitignore
+│  │  compiler.xml
+│  │  dataSources.local.xml
+│  │  dataSources.xml
+│  │  encodings.xml
+│  │  google-java-format.xml
+│  │  jarRepositories.xml
+│  │  misc.xml
+│  │  uiDesigner.xml
+│  │  vcs.xml
+│  │  workspace.xml
+│  │  
+│  ├─dataSources
+│  │  │  a522c3fa-e69c-4f7a-b2d7-c57e56a686ba.xml
+│  │  │  
+│  │  └─a522c3fa-e69c-4f7a-b2d7-c57e56a686ba
+│  │      └─storage_v2
+│  │          └─_src_
+│  │              └─schema
+│  │                      information_schema.FNRwLQ.meta
+│  │                      
+│  └─inspectionProfiles
+│          Project_Default.xml
+│          
+├─content-center
+│  │  .gitignore
+│  │  pom.xml
+│  │  
+│  ├─.mvn
+│  │  └─wrapper
+│  │          maven-wrapper.jar
+│  │          maven-wrapper.properties
+│  │          MavenWrapperDownloader.java
+│  │          
+│  ├─src
+│  │  ├─docs
+│  │  │  └─asciidoc
+│  │  │      ├─generated
+│  │  │      │      all.adoc
+│  │  │      │      
+│  │  │      └─html
+│  │  │              all.html
+│  │  │              
+│  │  ├─main
+│  │  │  ├─java
+│  │  │  │  └─com
+│  │  │  │      └─wl
+│  │  │  │          └─contentcenter
+│  │  │  │              │  ContentCenterApplication.java
+│  │  │  │              │  ContentController.java
+│  │  │  │              │  
+│  │  │  │              ├─common
+│  │  │  │              │  ├─constant
+│  │  │  │              │  │      ParameterConstant.java
+│  │  │  │              │  │      
+│  │  │  │              │  ├─handler
+│  │  │  │              │  │      GlobalResponseHandler.java
+│  │  │  │              │  │      
+│  │  │  │              │  └─result
+│  │  │  │              │          RestResult.java
+│  │  │  │              │          RestResultBuilder.java
+│  │  │  │              │          ResultCode.java
+│  │  │  │              │          
+│  │  │  │              ├─config
+│  │  │  │              │      AsyncRestTemplateConfig.java
+│  │  │  │              │      SwaggerConfiguration.java
+│  │  │  │              │      UserCenterconfig.java
+│  │  │  │              │      
+│  │  │  │              ├─controller
+│  │  │  │              │      NoticeController.java
+│  │  │  │              │      ShareController.java
+│  │  │  │              │      
+│  │  │  │              ├─domain
+│  │  │  │              │  ├─dto
+│  │  │  │              │  │      AuditDto.java
+│  │  │  │              │  │      EditorSharesDto.java
+│  │  │  │              │  │      MyShareDto.java
+│  │  │  │              │  │      SearchDto.java
+│  │  │  │              │  │      ShareRequestDTO.java
+│  │  │  │              │  │      UserAddBonusDto.java
+│  │  │  │              │  │      
+│  │  │  │              │  └─vo
+│  │  │  │              │          MyShareVo.java
+│  │  │  │              │          NoticeVo.java
+│  │  │  │              │          ShareInfo.java
+│  │  │  │              │          UserShareVo.java
+│  │  │  │              │          
+│  │  │  │              ├─entity
+│  │  │  │              │      BonusEventLog.java
+│  │  │  │              │      MidUserShare.java
+│  │  │  │              │      Notice.java
+│  │  │  │              │      RocketmqTransactionLog.java
+│  │  │  │              │      Share.java
+│  │  │  │              │      
+│  │  │  │              ├─exception
+│  │  │  │              │      AccessDeniedException.java
+│  │  │  │              │      ApiException.java
+│  │  │  │              │      ApiExceptionHandler.java
+│  │  │  │              │      
+│  │  │  │              ├─JWTutil
+│  │  │  │              │      Authorization.java
+│  │  │  │              │      AuthorizationInterceptor.java
+│  │  │  │              │      JWTUtils.java
+│  │  │  │              │      
+│  │  │  │              ├─openFegin
+│  │  │  │              │      UserFegin.java
+│  │  │  │              │      
+│  │  │  │              ├─service
+│  │  │  │              │  │  NoticeService.java
+│  │  │  │              │  │  ShareService.java
+│  │  │  │              │  │  
+│  │  │  │              │  └─serviceImpl
+│  │  │  │              │          NoticeServiceImpl.java
+│  │  │  │              │          ShareServiceImpl.java
+│  │  │  │              │          
+│  │  │  │              ├─sqlUtil
+│  │  │  │              │  ├─dao
+│  │  │  │              │  │  │  MidUserShareDao.java
+│  │  │  │              │  │  │  NoticeDao.java
+│  │  │  │              │  │  │  SharesDao.java
+│  │  │  │              │  │  │  
+│  │  │  │              │  │  └─daoImpl
+│  │  │  │              │  │          MidUserShareDaoImpl.java
+│  │  │  │              │  │          NoticeDaoImpl.java
+│  │  │  │              │  │          SharesDaoImpl.java
+│  │  │  │              │  │          
+│  │  │  │              │  ├─repository
+│  │  │  │              │  │      MidUserShareRepository.java
+│  │  │  │              │  │      NoticeRepository.java
+│  │  │  │              │  │      ShareRepository.java
+│  │  │  │              │  │      
+│  │  │  │              │  └─util
+│  │  │  │              │          BaseService.java
+│  │  │  │              │          
+│  │  │  │              └─userEntiy
+│  │  │  │                      User.java
+│  │  │  │                      
+│  │  │  └─resources
+│  │  │          application.yml
+│  │  │          
+│  │  └─test
+│  │      └─java
+│  │          └─com
+│  │              └─wl
+│  │                  └─contentcenter
+│  │                          ContentCenterApplicationTests.java
+│  │                          SentinelTest.java
+│  │                          
+│  └─target
+│      ├─classes
+│      │  │  application.yml
+│      │  │  
+│      │  └─com
+│      │      └─wl
+│      │          └─contentcenter
+│      │              │  ContentCenterApplication.class
+│      │              │  ContentController.class
+│      │              │  
+│      │              ├─common
+│      │              │  ├─constant
+│      │              │  │      ParameterConstant.class
+│      │              │  │      
+│      │              │  ├─handler
+│      │              │  │      GlobalResponseHandler.class
+│      │              │  │      
+│      │              │  └─result
+│      │              │          RestResult.class
+│      │              │          RestResultBuilder.class
+│      │              │          ResultCode.class
+│      │              │          
+│      │              ├─config
+│      │              │      AsyncRestTemplateConfig.class
+│      │              │      SwaggerConfiguration.class
+│      │              │      UserCenterconfig.class
+│      │              │      
+│      │              ├─controller
+│      │              │      NoticeController.class
+│      │              │      ShareController.class
+│      │              │      
+│      │              ├─domain
+│      │              │  ├─dto
+│      │              │  │      AuditDto$AuditDtoBuilder.class
+│      │              │  │      AuditDto.class
+│      │              │  │      EditorSharesDto$EditorSharesDtoBuilder.class
+│      │              │  │      EditorSharesDto.class
+│      │              │  │      MyShareDto$MyShareDtoBuilder.class
+│      │              │  │      MyShareDto.class
+│      │              │  │      SearchDto$SearchDtoBuilder.class
+│      │              │  │      SearchDto.class
+│      │              │  │      ShareRequestDTO$ShareRequestDTOBuilder.class
+│      │              │  │      ShareRequestDTO.class
+│      │              │  │      UserAddBonusDto$UserAddBonusDtoBuilder.class
+│      │              │  │      UserAddBonusDto.class
+│      │              │  │      
+│      │              │  └─vo
+│      │              │          MyShareVo$MyShareVoBuilder.class
+│      │              │          MyShareVo.class
+│      │              │          NoticeVo$NoticeVoBuilder.class
+│      │              │          NoticeVo.class
+│      │              │          ShareInfo$ShareInfoBuilder.class
+│      │              │          ShareInfo.class
+│      │              │          UserShareVo$UserShareVoBuilder.class
+│      │              │          UserShareVo.class
+│      │              │          
+│      │              ├─entity
+│      │              │      BonusEventLog.class
+│      │              │      MidUserShare.class
+│      │              │      Notice.class
+│      │              │      QBonusEventLog.class
+│      │              │      QMidUserShare.class
+│      │              │      QNotice.class
+│      │              │      QRocketmqTransactionLog.class
+│      │              │      QShare.class
+│      │              │      RocketmqTransactionLog.class
+│      │              │      Share.class
+│      │              │      
+│      │              ├─exception
+│      │              │      AccessDeniedException.class
+│      │              │      ApiException.class
+│      │              │      ApiExceptionHandler.class
+│      │              │      
+│      │              ├─JWTutil
+│      │              │      Authorization.class
+│      │              │      AuthorizationInterceptor.class
+│      │              │      JWTUtils.class
+│      │              │      
+│      │              ├─openFegin
+│      │              │      UserFegin.class
+│      │              │      
+│      │              ├─service
+│      │              │  │  NoticeService.class
+│      │              │  │  ShareService.class
+│      │              │  │  
+│      │              │  └─serviceImpl
+│      │              │          NoticeServiceImpl.class
+│      │              │          ShareServiceImpl.class
+│      │              │          
+│      │              ├─sqlUtil
+│      │              │  ├─dao
+│      │              │  │  │  MidUserShareDao.class
+│      │              │  │  │  NoticeDao.class
+│      │              │  │  │  SharesDao.class
+│      │              │  │  │  
+│      │              │  │  └─daoImpl
+│      │              │  │          MidUserShareDaoImpl.class
+│      │              │  │          NoticeDaoImpl.class
+│      │              │  │          SharesDaoImpl.class
+│      │              │  │          
+│      │              │  ├─repository
+│      │              │  │      MidUserShareRepository.class
+│      │              │  │      NoticeRepository.class
+│      │              │  │      ShareRepository.class
+│      │              │  │      
+│      │              │  └─util
+│      │              │          BaseService.class
+│      │              │          
+│      │              └─userEntiy
+│      │                      User$UserBuilder.class
+│      │                      User.class
+│      │                      
+│      ├─generated-sources
+│      │  ├─annotations
+│      │  └─java
+│      │      └─com
+│      │          └─wl
+│      │              └─contentcenter
+│      │                  └─entity
+│      │                          QBonusEventLog.java
+│      │                          QMidUserShare.java
+│      │                          QNotice.java
+│      │                          QRocketmqTransactionLog.java
+│      │                          QShare.java
+│      │                          
+│      ├─generated-test-sources
+│      │  └─test-annotations
+│      ├─maven-status
+│      │  └─maven-compiler-plugin
+│      │      └─compile
+│      │          └─default-compile
+│      │                  createdFiles.lst
+│      │                  inputFiles.lst
+│      │                  
+│      └─test-classes
+│          └─com
+│              └─wl
+│                  └─contentcenter
+│                          ContentCenterApplicationTests.class
+│                          SentinelTest.class
+│                          
+├─gateway
+│  │  pom.xml
+│  │  
+│  ├─.mvn
+│  │  └─wrapper
+│  │          maven-wrapper.jar
+│  │          maven-wrapper.properties
+│  │          MavenWrapperDownloader.java
+│  │          
+│  ├─src
+│  │  ├─main
+│  │  │  ├─java
+│  │  │  │  └─com
+│  │  │  │      └─wl
+│  │  │  │          └─gateway
+│  │  │  │                  GatewayApplication.java
+│  │  │  │                  TimeBetweenConfig.java
+│  │  │  │                  TimeBetweenRoutePredicateFactory.java
+│  │  │  │                  
+│  │  │  └─resources
+│  │  │          application.yml
+│  │  │          
+│  │  └─test
+│  │      └─java
+│  │          └─com
+│  │              └─wl
+│  │                  └─gateway
+│  │                          GatewayApplicationTests.java
+│  │                          
+│  └─target
+│      ├─classes
+│      │  │  application.yml
+│      │  │  
+│      │  └─com
+│      │      └─wl
+│      │          └─gateway
+│      │                  GatewayApplication.class
+│      │                  TimeBetweenConfig.class
+│      │                  TimeBetweenRoutePredicateFactory.class
+│      │                  
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─generated-test-sources
+│      │  └─test-annotations
+│      └─test-classes
+│          └─com
+│              └─wl
+│                  └─gateway
+│                          GatewayApplicationTests.class
+│                          
+└─user-center
+    │  .gitignore
+    │  pom.xml
+    │  user-center.iml
+    │  
+    ├─.mvn
+    │  └─wrapper
+    │          maven-wrapper.jar
+    │          maven-wrapper.properties
+    │          MavenWrapperDownloader.java
+    │          
+    ├─src
+    │  ├─main
+    │  │  ├─java
+    │  │  │  └─com
+    │  │  │      └─yy
+    │  │  │          └─usercenter
+    │  │  │              │  UserCenterApplication.java
+    │  │  │              │  
+    │  │  │              ├─common
+    │  │  │              │  ├─constant
+    │  │  │              │  │      ParameterConstant.java
+    │  │  │              │  │      
+    │  │  │              │  ├─handler
+    │  │  │              │  │      GlobalResponseHandler.java
+    │  │  │              │  │      
+    │  │  │              │  └─result
+    │  │  │              │          RestResult.java
+    │  │  │              │          RestResultBuilder.java
+    │  │  │              │          ResultCode.java
+    │  │  │              │          
+    │  │  │              ├─controller
+    │  │  │              │      EchoController.java
+    │  │  │              │      UserController.java
+    │  │  │              │      
+    │  │  │              ├─domain
+    │  │  │              │  ├─Dto
+    │  │  │              │  │      LoginDto.java
+    │  │  │              │  │      MessageDto.java
+    │  │  │              │  │      
+    │  │  │              │  └─Vo
+    │  │  │              │          LoginVo.java
+    │  │  │              │          
+    │  │  │              ├─JWTutil
+    │  │  │              │      Authorization.java
+    │  │  │              │      AuthorizationInterceptor.java
+    │  │  │              │      JWTUtils.java
+    │  │  │              │      ParameterConstant.java
+    │  │  │              │      
+    │  │  │              ├─mapper
+    │  │  │              │      BonusMapper.java
+    │  │  │              │      UserMapper.java
+    │  │  │              │      
+    │  │  │              ├─model
+    │  │  │              │      Bonus.java
+    │  │  │              │      User.java
+    │  │  │              │      
+    │  │  │              ├─RQ
+    │  │  │              │      AddBonusListener.java
+    │  │  │              │      
+    │  │  │              └─service
+    │  │  │                  │  UserService.java
+    │  │  │                  │  
+    │  │  │                  └─Impl
+    │  │  │                          UserServiceImpl.java
+    │  │  │                          
+    │  │  └─resources
+    │  │      │  application.yml
+    │  │      │  
+    │  │      ├─static
+    │  │      └─templates
+    │  └─test
+    │      └─java
+    │          └─com
+    │              └─wl
+    │                  ├─usercenter
+    │                  │      UserCenterApplicationTests.java
+    │                  │      
+    │                  └─wxshare
+    └─target
+        ├─classes
+        │  │  application.yml
+        │  │  maven-wrapper.jar
+        │  │  maven-wrapper.properties
+        │  │  MavenWrapperDownloader$1.class
+        │  │  MavenWrapperDownloader.class
+        │  │  
+        │  └─com
+        │      └─yy
+        │          └─usercenter
+        │              │  UserCenterApplication.class
+        │              │  
+        │              ├─common
+        │              │  ├─constant
+        │              │  │      ParameterConstant.class
+        │              │  │      
+        │              │  ├─handler
+        │              │  │      GlobalResponseHandler.class
+        │              │  │      
+        │              │  └─result
+        │              │          RestResult.class
+        │              │          RestResultBuilder.class
+        │              │          ResultCode.class
+        │              │          
+        │              ├─controller
+        │              │      EchoController.class
+        │              │      UserController.class
+        │              │      
+        │              ├─domain
+        │              │  ├─Dto
+        │              │  │      LoginDto$LoginDtoBuilder.class
+        │              │  │      LoginDto.class
+        │              │  │      MessageDto$MessageDtoBuilder.class
+        │              │  │      MessageDto.class
+        │              │  │      
+        │              │  └─Vo
+        │              │          LoginVo$LoginVoBuilder.class
+        │              │          LoginVo.class
+        │              │          
+        │              ├─JWTutil
+        │              │      Authorization.class
+        │              │      AuthorizationInterceptor.class
+        │              │      JWTUtils.class
+        │              │      ParameterConstant.class
+        │              │      
+        │              ├─mapper
+        │              │      BonusMapper.class
+        │              │      UserMapper.class
+        │              │      
+        │              ├─model
+        │              │      Bonus$BonusBuilder.class
+        │              │      Bonus.class
+        │              │      User$UserBuilder.class
+        │              │      User.class
+        │              │      
+        │              ├─RQ
+        │              │      AddBonusListener.class
+        │              │      
+        │              └─service
+        │                  │  UserService.class
+        │                  │  
+        │                  └─Impl
+        │                          UserServiceImpl.class
+        │                          
+        ├─generated-sources
+        │  └─annotations
+        ├─generated-test-sources
+        │  └─test-annotations
+        └─test-classes
+            └─com
+                └─wl
+                    └─usercenter
+                            UserCenterApplicationTests.class
+                            
+文件夹 PATH 列表
+卷序列号为 0E26-1087
+E:\WX-SHARE\-D
+无效的路径 - \WX-SHARE\-D
+没有子文件夹 
+

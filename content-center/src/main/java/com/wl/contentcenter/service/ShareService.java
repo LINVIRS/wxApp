@@ -3,6 +3,7 @@ package com.wl.contentcenter.service;
 import com.wl.contentcenter.common.result.RestResult;
 import com.wl.contentcenter.domain.dto.*;
 import com.wl.contentcenter.domain.vo.MyShareVo;
+import com.wl.contentcenter.domain.vo.ShareInfo;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public interface ShareService {
    * @param myShareDto
    * @return
    */
-  List<MyShareVo> findShare(MyShareDto myShareDto);
+  List<MyShareVo> findShare(MyShareDto myShareDto,Integer userId);
 
   /**
    * 搜索接口
@@ -51,6 +52,12 @@ public interface ShareService {
    */
   List<MyShareVo> searchKey(SearchDto searchDto);
 
+  /**
+   * 查找我的兑换
+   * @param searchDto
+   * @return
+   */
+  List<MyShareVo> findMyDuiHuan(MyShareDto myShareDto);
   /**
    * 审核帖子
    * 管理员接口
@@ -84,4 +91,12 @@ public interface ShareService {
    * @return
    */
   RestResult auditShare3(AuditDto auditDto);
+
+  /**
+   * 根据id查找shareId
+   * @param ShareId
+   * @return
+   */
+  ShareInfo findShareById(Integer ShareId);
+
 }
